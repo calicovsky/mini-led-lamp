@@ -1,0 +1,88 @@
+body {
+    background-color: #1d1d1d;
+}
+
+button {
+    border: 1px solid black;
+    border-color: #858585;
+    border-radius: 5px;
+    background-color: #323232;
+}
+
+#mode-selection {
+    margin: 0 auto;
+    padding: 10px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    color: #c0c0c0;
+}
+
+/* #manual-settings-container {
+    
+} */
+
+.flex-container {
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: dodgerblue; */
+    overflow: hidden;
+}
+
+#brightness-container {
+    /*margin: auto;*/
+    padding: 70px 0;
+    width: 100px;
+    /* height: 180px; */
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+#brightness {
+    font-family: sans-serif;
+    color: #c0c0c0;
+    font-size: 28px;
+}
+
+.brightness-control-button {
+    margin: 5px;
+    width: 100px;
+    height: 80px;
+    font-size: 20px;
+    color: #c0c0c0;
+}
+
+.brightness-buttons {
+    padding: 5px;
+}
+
+#off-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#moonlight-button {
+    margin: 0 10px;
+    padding: 5px;
+    width: 112px;
+    height: 56px;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #c0c0c0;
+}
+
+#off-button {
+    margin: 0 10px;
+    padding: 5px;
+    width: 112px;
+    height: 56px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #c0c0c0;
+}

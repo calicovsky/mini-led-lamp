@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceiling Light</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div id="mode-selection">
+        <input type="radio" id="auto_mode" name="mode" value="auto">
+        <label for="auto">AUTO</label>
+        <input type="radio" id="manual_mode" name="mode" value="manual" checked>
+        <label for="manual">MANUAL</label>
+    </div>
+    <div id="manual-settings-container">
+        <div id="manual-settings" class="flex-container">
+            <div id="brightness-container">
+                <p id="brightness">0</p>
+            </div>
+            <div class="brightness-buttons">
+                <button id="increase-brightness" class="brightness-control-button">▲</button>
+                <br>
+                <button id="decrease-brightness" class="brightness-control-button">▼</button>
+            </div>
+        </div>
+        <div id="off-button-container">
+            <button id="moonlight-button">MOONLIGHT</button>
+            <button id="off-button">OFF</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
