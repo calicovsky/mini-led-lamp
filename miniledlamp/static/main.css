@@ -65,6 +65,7 @@ button {
 #off-button-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 #moonlight-button {
@@ -85,4 +86,54 @@ button {
     font-size: 20px;
     font-family: sans-serif;
     color: #c0c0c0;
+}
+
+#turn-off-timer-title {
+    text-align: center;
+    font-size: 16px;
+    color: #b0b0b0;
+}
+
+#turn-off-timers {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.turn-off-timer {
+    display: flex;
+    padding: 5px;
+}
+
+.timer-label {
+    padding: 5px 0;
+    margin: 0px 10px;
+    color: #c0c0c0;
+    font-size: 24px;
+}
+
+.turn-off-time {
+    margin: auto;
+    padding: 0 10px;
+    color: #757575;
+    font-size: 24px;
+}
+
+.turn-off-timer-input {
+    color: #c0c0c0;
+    margin-left: 10px;
+    display: none;
+}
+
+.turn-off-timer-edit-or-set {
+    margin: auto;
+    padding: 0 5px;
+    color: #757575;
+    cursor: pointer;
+}
+
+input[type='number'] {
+    color: #c0c0c0;
+    font-size: 20px;
+    background-color: #404040;
 }

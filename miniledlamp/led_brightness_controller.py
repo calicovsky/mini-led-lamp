@@ -102,3 +102,6 @@ def set_brightness(brightness):
 
 def get_brightness():
     return led_brightness_controller.get_brightness()
+
+def turn_off():
+    led_brightness_controller.set_brightness(0)

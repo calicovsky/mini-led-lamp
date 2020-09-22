@@ -77,6 +77,60 @@ document.querySelector('#off-button').addEventListener('click',
         document.querySelector('#brightness').textContent = current_brightness;
     });
 
+document.querySelector('#timer1-on-off').addEventListener('click',
+    (event) => {
+        let turnOffTime = document.querySelector('#turn-off-time1');
+        let edit = document.querySelector('#turn-off-timer1-edit-or-set');
+        if(event.target.checked) {
+            turnOffTime.style.color = '#c9c9c9';
+            edit.style.color = '#c9c9c9';
+            edit.disabled = false;
+            postData('/turn-off-timer', {enabled: true, timer_index: 0});
+        } else {
+            turnOffTime.style.color = '#757575';
+            edit.style.color = '#757575';
+            edit.disabled = false;
+            postData('/turn-off-timer', {enabled: false, timer_index: 0});
+        }
+    });
+
+document.querySelector('#turn-off-timer1-edit-or-set').addEventListener('click',
+    (event) => {
+        const text = event.target.textContent;
+        let inputFields = document.querySelector('#turn-off-timer1-input');
+        let offTimeDisplay = document.querySelector('#turn-off-time1');
+        let element = document.querySelector('#turn-off-timer1-edit-or-set');
+        if(text == 'Edit') {
+            inputFields.style.display = 'block';
+            offTimeDisplay.style.display = 'none';
+            element.textContent = 'Set';
+            const h_and_m = offTimeDisplay.textContent.split(':').map(s => parseInt(s));
+            document.querySelector('#turn-off-timer1-hour').value = h_and_m[0];
+            document.querySelector('#turn-off-timer1-minute').value = h_and_m[1];
+        } else if(text == 'Set') {
+            inputFields.style.display = 'none';
+            offTimeDisplay.style.display = 'block';
+            element.textContent = 'Edit';
+
+            // Update the time
+            const hour = parseInt(document.querySelector('#turn-off-timer1-hour').value);
+            const min = parseInt(document.querySelector('#turn-off-timer1-minute').value);
+            if(hour === '') {
+                console.log('The hour field is empty');
+            } else {
+                offTimeDisplay.textContent = `${hour}:${min.toString().padStart(2,'0')}`;
+            }
+
+            // Set the turn-off time
+            postData('/turn-off-timer', {
+                enabled: true,
+                timer_index: 0,
+                hour:   hour,
+                minute: min
+            });
+        }
+    });
+
 // (async () => {
 //     const res = await fetch('/led-brightness');
 //     current_brightness = res.json().brightness;
@@ -87,4 +141,22 @@ fetch('/led-brightness')
     .then(data => {
         current_brightness = data.brightness;
         document.querySelector('#brightness').textContent = current_brightness;
+    }).catch(console.error);
+
+fetch('/turn-off-timer')
+    .then(res => res.json())
+    .then(data => {
+        const timers = data.timers;
+        for(let i=0; i<timers.length; i++) {
+            const timer = timers[i];
+            console.log(timer.enabled);
+
+            const number = i+1;
+            document.querySelector(`#timer${number}-on-off`).checked = timer.enabled;
+            document.querySelector(`#turn-off-time${number}`).textContent
+            = `${timer.hour}:${timer.minute.toString().padStart(2,'0')}`;
+
+            // TODO: support multiple timers
+            break;
+        }
     }).catch(console.error);

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceiling Light</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='toggle-switch.css') }}">
 </head>
 <body>
     <div id="mode-selection">
@@ -27,6 +28,27 @@
         <div id="off-button-container">
             <button id="moonlight-button">MOONLIGHT</button>
             <button id="off-button">OFF</button>
+        </div>
+        <div id="turn-off-timer-title">
+            Turn-off Timers
+        </div>
+        <div id="turn-off-timers">
+            <div class="turn-off-timer" id="turn-off-timer1">
+                <div class="timer-label">1</div>
+                <div class="turn-off-timer-switch">
+                    <label class="switch">
+                        <input type="checkbox" id="timer1-on-off">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="turn-off-time" id="turn-off-time1">00:00</div>
+                <div class="turn-off-timer-input" id="turn-off-timer1-input">
+                    <input type="number" size="2" min="0" max="23" id="turn-off-timer1-hour">
+                    :
+                    <input type="number" size="2" min="0" max="60" id="turn-off-timer1-minute">
+                </div>
+                <div class="turn-off-timer-edit-or-set" id="turn-off-timer1-edit-or-set">Edit</div>
+            </div>
         </div>
     </div>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
