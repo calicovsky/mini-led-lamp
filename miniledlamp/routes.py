@@ -1,5 +1,6 @@
 from flask import render_template, request, jsonify
 import logging
+import subprocess
 from miniledlamp import app
 from miniledlamp import led_brightness_controller
 from miniledlamp import turn_off_timer
@@ -57,3 +58,8 @@ def connect_to_wireless_ap():
 @app.route('/get-currently-connected-wireless-ap-info')
 def get_currently_connected_wireless_ap_info():
   return jsonify({'ssid': wifi_util.get_currently_connected_ap_ssid()})
+
+@app.route('/shutdown')
+def shutdown_this_computer():
+  subprocess.check_output(['sudo', 'shutdown'])
+  return jsonify({'awww': True})
