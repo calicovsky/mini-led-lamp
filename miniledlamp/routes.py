@@ -3,6 +3,7 @@ import logging
 from miniledlamp import app
 from miniledlamp import led_brightness_controller
 from miniledlamp import turn_off_timer
+from miniledlamp import wifi_util
 
 @app.route('/')
 def home():
@@ -43,3 +44,16 @@ def _turn_off_timer(): # '_' for avoiding name conflict with the module
 @app.route('/add-turn-off-timer', methods=['POST'])
 def add_turn_off_timer():
   return jsonify({'awww': True})
+
+@app.route('/wifi-settings')
+def wifi_settings():
+  return render_template('wifi-settings.html')
+
+@app.route('/connect-to-wireless-ap')
+def connect_to_wireless_ap():
+  status = wifi_util.connect(ssid, password)
+  return jsonify({'status': status, 'message': 'awww'})
+
+@app.route('/get-currently-connected-wireless-ap-info')
+def get_currently_connected_wireless_ap_info():
+  return jsonify({'ssid': wifi_util.get_currently_connected_ap_ssid()})

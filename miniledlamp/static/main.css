@@ -2,7 +2,20 @@ body {
     background-color: #1d1d1d;
 }
 
+p {
+    color: #c0c0c0;
+    font-size: 20px;
+}
+
+label {
+    color: #c0c0c0;
+    font-size: 20px;
+}
+
 button {
+    padding: 8px;
+    color: #c0c0c0;
+    font-size: 20px;
     border: 1px solid black;
     border-color: #858585;
     border-radius: 5px;

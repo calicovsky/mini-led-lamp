@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceiling Light</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='modal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div id="currently-connected-network-container">
+        <p id="currently-connected-network">Your Raspberry Pi is currently connected to:</p>
+    </div>
+    <hr>
+    <form action="">
+      <label for="ssid">SSID</label>
+      <input type="text" id="ssid" name="ssid"><br><br>
+      <label for="password">Password</label>
+      <input type="password" id="wifi-password" name="wifi-password"><br><br>
+    </form>
+    <button id="connect-button">Connect</button>
+
+    <!--div id="wifi-network-list-container">
+      <p>WiFi Networks</p>
+      <select id="wifi-network-list"></select>
+    </div>
+    <div id="connect-button-container">
+      <button id="connect-button">Connect</button>
+    </div>
+    <div id="password-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <p>Awww modal</p>
+      </div>
+    </div-->
+    <script src="{{ url_for('static', filename='utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='wifi-settings.js') }}"></script>
+</body>
+</html>
